@@ -202,6 +202,14 @@ tk.Button(btn_frame, text="Delete", width=12, command=delete_student).grid(row=0
 tk.Button(btn_frame, text="Clear", width=12, command=clear_fields).grid(row=0, column=4, padx=5)
 
 # Table
+style = ttk.Style()
+style.theme_use("clam")
+
+style.configure(
+    "Treeview.Heading",
+    font=("Arial", 12, "bold")
+)
+
 tree = ttk.Treeview(
     root,
     columns=("ID", "Name", "Age", "Course", "Marks"),
