@@ -113,6 +113,8 @@ def display_students():
 
     students = load_students()
 
+    students.sort(key=lambda student:float(student["marks"]),reverse=True)
+
     for student in students:
         tree.insert(
             "",
