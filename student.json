@@ -7,13 +7,6 @@
         "marks": 85.5
     },
     {
-        "id": "102",
-        "name": "Priya",
-        "age": "21",
-        "course": "BCA",
-        "marks": "91.0"
-    },
-    {
         "id": "103",
         "name": "Anu",
         "age": "21",
@@ -40,5 +33,12 @@
         "age": "21",
         "course": "BCA",
         "marks": "90.32"
+    },
+    {
+        "id": "102",
+        "name": "Nisha",
+        "age": "21",
+        "course": "BCA",
+        "marks": "91.85"
     }
 ]

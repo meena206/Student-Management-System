@@ -158,7 +158,7 @@ def select_record(event):
 
 root = tk.Tk()
 root.title("Student Management System")
-root.geometry("900x600")
+root.geometry("1100x600")
 root.configure(bg="#f0f0f0")
 
 title = tk.Label(
@@ -169,41 +169,46 @@ title = tk.Label(
 )
 title.pack(pady=10)
 
-# Form Frame
-form_frame = tk.Frame(root, bg="#f0f0f0")
-form_frame.pack(pady=10)
+left_frame=tk.LabelFrame(root, text="Student Details",
+                      font=("Arial", 12, "bold"),
+                      padx=15,pady=15)
+left_frame.pack(side=tk.LEFT,fill=tk.Y,padx=10,pady=10)
 
-tk.Label(form_frame, text="Student ID").grid(row=0, column=0, padx=5, pady=5)
-entry_id = tk.Entry(form_frame)
+# Form Frame
+
+tk.Label(left_frame, text="Student ID").grid(row=0, column=0, padx=5, pady=5)
+entry_id = tk.Entry(left_frame)
 entry_id.grid(row=0, column=1)
 
-tk.Label(form_frame, text="Name").grid(row=1, column=0, padx=5, pady=5)
-entry_name = tk.Entry(form_frame)
+tk.Label(left_frame, text="Name").grid(row=1, column=0, padx=5, pady=5)
+entry_name = tk.Entry(left_frame)
 entry_name.grid(row=1, column=1)
 
-tk.Label(form_frame, text="Age").grid(row=0, column=2, padx=5, pady=5)
-entry_age = tk.Entry(form_frame)
-entry_age.grid(row=0, column=3)
+tk.Label(left_frame, text="Age").grid(row=2, column=0, padx=5, pady=5)
+entry_age = tk.Entry(left_frame)
+entry_age.grid(row=2, column=1)
 
-tk.Label(form_frame, text="Course").grid(row=1, column=2, padx=5, pady=5)
-entry_course = tk.Entry(form_frame)
-entry_course.grid(row=1, column=3)
+tk.Label(left_frame, text="Course").grid(row=3, column=0, padx=5, pady=5)
+entry_course = tk.Entry(left_frame)
+entry_course.grid(row=3, column=1)
 
-tk.Label(form_frame, text="Marks").grid(row=0, column=4, padx=5, pady=5)
-entry_marks = tk.Entry(form_frame)
-entry_marks.grid(row=0, column=5)
+tk.Label(left_frame, text="Marks").grid(row=4, column=0, padx=5, pady=5)
+entry_marks = tk.Entry(left_frame)
+entry_marks.grid(row=4, column=1)
 
 # Buttons
-btn_frame = tk.Frame(root, bg="#f0f0f0")
-btn_frame.pack(pady=10)
 
-tk.Button(btn_frame, text="Add", width=12, command=add_student).grid(row=0, column=0, padx=5)
-tk.Button(btn_frame, text="Search", width=12, command=search_student).grid(row=0, column=1, padx=5)
-tk.Button(btn_frame, text="Update", width=12, command=update_student).grid(row=0, column=2, padx=5)
-tk.Button(btn_frame, text="Delete", width=12, command=delete_student).grid(row=0, column=3, padx=5)
-tk.Button(btn_frame, text="Clear", width=12, command=clear_fields).grid(row=0, column=4, padx=5)
+tk.Button(left_frame, text="Add", width=12, command=add_student).grid(row=5, column=0, padx=5,pady=5)
+tk.Button(left_frame, text="Search", width=12, command=search_student).grid(row=5, column=1, padx=5,pady=5)
+tk.Button(left_frame, text="Update", width=12, command=update_student).grid(row=6, column=0, padx=5,pady=5)
+tk.Button(left_frame, text="Delete", width=12, command=delete_student).grid(row=6, column=1, padx=5,pady=5)
+tk.Button(left_frame, text="Clear", width=12, command=clear_fields).grid(row=7, column=0, padx=5,pady=5)
 
 # Table
+right_frame=tk.LabelFrame(root,text="Student Records",
+                          font=("Arial",12,"bold"))
+right_frame.pack(side=tk.RIGHT,fill=tk.BOTH,expand=True,padx=10,pady=10)
+
 style = ttk.Style()
 style.theme_use("clam")
 
@@ -213,7 +218,7 @@ style.configure(
 )
 
 tree = ttk.Treeview(
-    root,
+    right_frame,
     columns=("ID", "Name", "Age", "Course", "Marks"),
     show="headings"
 )
@@ -224,11 +229,11 @@ tree.heading("Age", text="Age")
 tree.heading("Course", text="Course")
 tree.heading("Marks", text="Marks")
 
-tree.column("ID", width=100)
+tree.column("ID", width=85)
 tree.column("Name", width=200)
-tree.column("Age", width=100)
-tree.column("Course", width=150)
-tree.column("Marks", width=100)
+tree.column("Age", width=120)
+tree.column("Course", width=120)
+tree.column("Marks", width=120)
 
 tree.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
 
