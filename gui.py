@@ -223,6 +223,12 @@ tree = ttk.Treeview(
     show="headings"
 )
 
+V_scroll=ttk.Scrollbar(right_frame, orient="vertical", command=tree.yview)
+tree.configure(yscrollcommand=V_scroll.set)
+
+V_scroll.pack(side=tk.RIGHT, fill=tk.Y)
+tree.pack()
+
 tree.heading("ID", text="ID")
 tree.heading("Name", text="Name")
 tree.heading("Age", text="Age")
