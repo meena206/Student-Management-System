@@ -1,44 +1,58 @@
 [
     {
-        "id": "101",
-        "name": "Rahul",
-        "age": 20,
+        "id": "104",
+        "name": "Mansi",
+        "age": 21,
         "course": "BCA",
-        "marks": 85.5
-    },
-    {
-        "id": "103",
-        "name": "Anu",
-        "age": "21",
-        "course": "BCA",
-        "marks": "89.50"
-    },
-    {
-        "id": "105",
-        "name": "Aakanksha",
-        "age": 20,
-        "course": "BCA",
-        "marks": 81.2
-    },
-    {
-        "id": "106",
-        "name": "Sakshi",
-        "age": "20",
-        "course": "BCA",
-        "marks": "82.01"
-    },
-    {
-        "id": "107",
-        "name": "Asha",
-        "age": "21",
-        "course": "BCA",
-        "marks": "90.32"
+        "marks": 75.5
     },
     {
         "id": "102",
-        "name": "Nisha",
+        "name": "Rahul",
         "age": "21",
         "course": "BCA",
-        "marks": "91.85"
+        "marks": "91.40"
+    },
+    {
+        "id": "109",
+        "name": "Sonal",
+        "age": "21",
+        "course": "BCA",
+        "marks": "80.21"
+    },
+    {
+        "id": "101",
+        "name": "Amrit",
+        "age": "20",
+        "course": "BCA",
+        "marks": "59.05"
+    },
+    {
+        "id": "106",
+        "name": "Sidharth",
+        "age": 21,
+        "course": "BCA",
+        "marks": 94.76
+    },
+    {
+        "id": "105",
+        "name": "Kailash",
+        "age": 20,
+        "course": "BCA",
+        "marks": 74.8
+    },
+    {
+        "id": "103",
+        "name": "Aruna",
+        "age": 21,
+        "course": "BCA",
+        "marks": 84.54
+    },
+    {
+        "id": "107",
+        "name": "Dinesh",
+        "age": 20,
+        "course": "BCA",
+        "marks": 65.21
     }
 ]

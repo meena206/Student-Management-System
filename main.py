@@ -20,12 +20,26 @@ def save_students(students):
 def add_student():
     students = load_students()
 
+    def get_int(prompt):
+            while True:
+                try:
+                    return int(input(prompt))
+                except ValueError:
+                    print("Please enter a valid integer.")
+
+    def get_float(prompt):
+            while True:
+                try:
+                    return float(input(prompt))
+                except ValueError:
+                    print("Please enter a valid number.")
+
     student = {
         "id": input("Enter Student ID: "),
         "name": input("Enter Name: "),
-        "age": int(input("Enter Age: ")),
+        "age": get_int("Enter Age: "),
         "course": input("Enter Course: "),
-        "marks": float(input("Enter Marks: "))
+        "marks": get_float("Enter Marks: ")
     }
 
     students.append(student)
@@ -37,6 +51,7 @@ def add_student():
 # View students
 def view_students():
     students = load_students()
+    students.sort(key=lambda student: float(student["marks"]), reverse=True)
 
     if not students:
         print("No student records found.")
@@ -73,12 +88,26 @@ def update_student():
     students = load_students()
     student_id = input("Enter Student ID to update: ")
 
+    def get_int(prompt):
+            while True:
+                try:
+                    return int(input(prompt))
+                except ValueError:
+                    print("Please enter a valid integer.")
+
+    def get_float(prompt):
+            while True:
+                try:
+                    return float(input(prompt))
+                except ValueError:
+                    print("Please enter a valid number.")
+
     for student in students:
         if student["id"] == student_id:
             student["name"] = input("New Name: ")
-            student["age"] = int(input("New Age: "))
+            student["age"] = get_int(input("New Age: "))
             student["course"] = input("New Course: ")
-            student["marks"] = float(input("New Marks: "))
+            student["marks"] = get_float(input("New Marks: "))
 
             save_students(students)
             print("Student updated successfully!")
@@ -92,10 +121,11 @@ def delete_student():
     students = load_students()
     student_id = input("Enter Student ID to delete: ")
 
-    updated_students = [
-        student for student in students
-        if student["id"] != student_id
-    ]
+    updated_students = [s for s in students if s["id"] != student_id]
+
+    if len(updated_students) == len(students):
+        print("Student not found.")
+        return
 
     save_students(updated_students)
 

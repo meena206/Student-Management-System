@@ -28,13 +28,17 @@ def save_students(students):
 def add_student():
     students = load_students()
 
-    student = {
-        "id": entry_id.get(),
-        "name": entry_name.get(),
-        "age": entry_age.get(),
-        "course": entry_course.get(),
-        "marks": entry_marks.get()
+    try:
+       student = {
+           "id": entry_id.get(),
+           "name": entry_name.get(),
+           "age": int(entry_age.get()),
+           "course": entry_course.get(),
+           "marks": float(entry_marks.get())
     }
+    except ValueError:
+        messagebox.showerror("Error", "Age must be an integer and Marks must be a number")
+        return
 
     if not student["id"] or not student["name"]:
         messagebox.showerror("Error", "ID and Name are required")
@@ -72,13 +76,13 @@ def search_student():
 def update_student():
     student_id = entry_id.get()
     students = load_students()
-
-    for student in students:
+    try:
+       for student in students:
         if student["id"] == student_id:
             student["name"] = entry_name.get()
-            student["age"] = entry_age.get()
+            student["age"] = int(entry_age.get())
             student["course"] = entry_course.get()
-            student["marks"] = entry_marks.get()
+            student["marks"] = float(entry_marks.get())
 
             save_students(students)
             display_students()
@@ -86,6 +90,9 @@ def update_student():
             messagebox.showinfo("Success", "Student Updated")
             clear_fields()
             return
+    except ValueError:
+        messagebox.showerror("Error", "Age must be an integer and Marks must be a number")
+        return
 
     messagebox.showwarning("Not Found", "Student not found")
 
@@ -95,9 +102,13 @@ def delete_student():
 
     students = load_students()
 
-    students = [s for s in students if s["id"] != student_id]
+    new_students = [s for s in students if s["id"] != student_id]
 
-    save_students(students)
+    if len(new_students) == len(students):
+        messagebox.showwarning("Not Found", "Student not found")
+        return
+
+    save_students(new_students)
 
     display_students()
     clear_fields()
@@ -227,7 +238,6 @@ V_scroll=ttk.Scrollbar(right_frame, orient="vertical", command=tree.yview)
 tree.configure(yscrollcommand=V_scroll.set)
 
 V_scroll.pack(side=tk.RIGHT, fill=tk.Y)
-tree.pack()
 
 tree.heading("ID", text="ID")
 tree.heading("Name", text="Name")
